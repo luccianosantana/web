@@ -1,0 +1,51 @@
+{% extends "inventario/base.html" %}
+
+{% block title %} Lista de Servidores {% endblock %}
+
+{% block content %}
+<ul class="list-group list-group-flush" id="servidor_detail"> 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Servidor</th>
+                <th>Ambiente</th>
+                <th>Responsável</th>
+                <th>Domínio</th>
+                <th>IP</th>
+                <th>SO</th>
+                <th>Ferramenta</th>
+                <th>Versão</th>
+                <th>Descrição</th>
+                <th>PCI</th>
+                <th>Contexto</th>
+                <th>Empresa</th>             
+                <th>Ação</th>
+            </tr>
+        </thead>
+    <tbody>
+    {% for row in object_list %}  
+            <tr>
+                <td style="width:1px; white-space:nowrap;">{{ row.nome }}</td>
+                <td style="width:1px; white-space:nowrap;">{{ row.ambiente }}</td>
+                <td style="width:1px; white-space:nowrap;">{{ row.responsavel }}</td>
+                <td style="width:1px; white-space:nowrap;">{{ row.dominio }}</td>
+                <td style="width:1px; white-space:nowrap;">{{ row.ip }}</td>
+                <td style="width:1px; white-space:nowrap;">{{ row.os }}</td>
+                <td style="width:1px; white-space:nowrap;">{{ row.ferramenta }}</td>
+                <td style="width:1px; white-space:nowrap;">{{ row.versao }}</td>
+                <td style="width:1px; white-space:nowrap;">{{ row.descricao }}</td>
+                <td style="width:1px; white-space:nowrap;">{{ row.pci }}</td>
+                <td style="width:1px; white-space:nowrap;">{{ row.contexto }}</td>
+                <td style="width:1px; white-space:nowrap;">{{ row.empresa }}</td>
+                <td style="width:1px; white-space:nowrap;">
+                    <a href="{% url 'inventario:detail' pk=row.id %}" class="btn btn-primary" role="button" aria-pressed="true">Detalhes</a>
+                    <a href="{% url 'inventario:update' pk=row.id %}" class="btn btn-secondary" role="button" aria-pressed="true">Editar</a>
+                    <a href="{% url 'inventario:delete' pk=row.id %}" class="btn btn-secondary" role="button" aria-pressed="true">Deletar</a>
+                </td>
+            </tr>
+    {% endfor %}     
+    </tr>
+    </tbody>
+    </table> 
+</ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "inventario/base.html" %}
+
+{% block title %} Servidor {% endblock %}
+
+{% block content %}
+    <ul class="list-group list-group-flush" id="servidor_delete"> 
+        <li class="list-group-item">
+        Confirma a exclusão do Servidor '{{ object.nome }}' ?
+        <form action="." method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary" value="Sim">
+            <a href="{% url 'inventario:list' %}" class="btn btn-secondary" role="button" aria-pressed="true">Não</a>
+        </form>
+        </li>         
+    </ul> 
+{% endblock %}

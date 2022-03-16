@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    container_name: inventario
+    image: banrisul/apim_inventario:1.0.0
+    ports:
+      - 8080:8080

@@ -1,0 +1,29 @@
+{% extends "inventario/base.html" %}
+
+{% block title %} Cliente{% endblock %}
+
+{% block content %}
+<ul class="list-group list-group-flush" id="servidor_detail"> 
+        <li class="list-group-item">
+            {{ object.dominio }}  
+        </li>  
+        <li class="list-group-item">
+            {{ object.ip }}  
+        </li> 
+        <li class="list-group-item">
+            {{ object.os }}  
+        </li> 
+        <li class="list-group-item">
+            {{ object.disco }}  
+        </li> 
+        <li class="list-group-item">
+            {{ object.memoria }}  
+        </li> 
+        <li class="list-group-item">
+            {{ object.vcpu }}  
+        </li>                                       
+    </ul> 
+
+
+    <a href="/inventario" class="btn btn-primary active" role="button">Voltar</a>   
+{% endblock %}
