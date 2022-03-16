@@ -1,0 +1,12 @@
+version: "2.2"
+
+services:
+  web:
+    build: .
+    container_name: inventario
+    image: empresa/apim_inventario:1.0.1
+    volumes:
+      - .:/usr/src/app
+      #- ./db.sqlite3:/usr/src/app/db.sqlite3
+    ports:
+      - 8080:8080
